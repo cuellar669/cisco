@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DS3 Comunicaciones - Líderes en soluciones de redes y comunicaciones en Perú" />
+  <title>DS3 Comunicaciones | Soluciones de Redes Profesionales</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .hero-pattern {
+      background-color: #1e3a8a;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  
+  <!-- NAVBAR SUPERIOR -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="https://www.ds3comunicaciones.com/index.html">
+            <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" 
+                 alt="DS3 Comunicaciones" 
+                 class="h-14 md:h-16 w-auto hover:scale-105 transition-transform" />
+          </a>
+        </div>
+
+        <!-- Info de contacto - Desktop -->
+        <div class="hidden lg:flex items-center space-x-8">
+          <div class="flex items-center space-x-2 text-gray-700">
+            <i class="fas fa-phone-alt text-blue-600"></i>
+            <div>
+              <p class="text-xs text-gray-500">Llámanos</p>
+              <p class="font-semibold">533-4339 / 994-428-965</p>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-2 text-gray-700">
+            <i class="fas fa-clock text-blue-600"></i>
+            <div>
+              <p class="text-xs text-gray-500">Horario</p>
+              <p class="font-semibold">Lun-Vie: 9:00-18:00</p>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-2 text-gray-700">
+            <i class="fas fa-envelope text-blue-600"></i>
+            <div>
+              <p class="text-xs text-gray-500">Email</p>
+              <p class="font-semibold">netperu100@hotmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botón contacto móvil -->
+        <div class="lg:hidden flex items-center space-x-3">
+          <a href="tel:5334339" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition">
+            <i class="fas fa-phone-alt"></i>
+          </a>
+          <button id="menu-btn" class="text-gray-700 p-2">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-gray-50 border-t">
+      <div class="px-4 py-4 space-y-3">
+        <div class="flex items-center space-x-2 text-gray-700">
+          <i class="fas fa-phone-alt text-blue-600"></i>
+          <span>533-4339 / 994-428-965</span>
+        </div>
+        <div class="flex items-center space-x-2 text-gray-700">
+          <i class="fas fa-clock text-blue-600"></i>
+          <span>Lun-Vie: 9:00-18:00 | Sáb: 9:00-13:00</span>
+        </div>
+        <div class="flex items-center space-x-2 text-gray-700">
+          <i class="fas fa-envelope text-blue-600"></i>
+          <span>netperu100@hotmail.com</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero-pattern py-20 md:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        
+        <!-- Contenido Izquierdo -->
+        <div class="text-white space-y-8 animate-fade-in-up">
+          <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+            Soluciones de Red
+            <span class="block text-blue-300">de Clase Mundial</span>
+          </h1>
+          <p class="text-xl text-blue-100 leading-relaxed">
+            Equipos profesionales de networking y comunicaciones para empresas que buscan excelencia tecnológica
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://www.ds3comunicaciones.com/pedido.html" 
+               class="bg-white text-blue-900 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition shadow-lg hover:shadow-xl flex items-center">
+              <i class="fas fa-shopping-cart mr-2"></i>
+              Ver Productos
+            </a>
+            <a href="https://wa.me/994428965" 
+               target="_blank"
+               class="bg-green-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-600 transition shadow-lg hover:shadow-xl flex items-center">
+              <i class="fab fa-whatsapp mr-2"></i>
+              Contactar Ahora
+            </a>
+          </div>
+        </div>
+
+        <!-- Imagen Derecha -->
+        <div class="relative animate-float hidden md:block">
+          <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
+            <img src="http://www.ds3comunicaciones.com/AMP/images/6-1427200-4-1.jpg" 
+                 alt="Productos de Red" 
+                 class="w-full h-auto rounded-xl shadow-2xl" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARACTERÍSTICAS -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">¿Por qué elegirnos?</h2>
+        <p class="text-xl text-gray-600">Calidad, experiencia y soporte técnico excepcional</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Característica 1 -->
+        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 hover:shadow-xl transition group">
+          <div class="bg-blue-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i class="fas fa-certificate text-3xl text-white"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Productos Certificados</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Trabajamos solo con marcas líderes del mercado: AMP, Belden, Cisco, MikroTik, Ubiquiti y más.
+          </p>
+        </div>
+
+        <!-- Característica 2 -->
+        <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 hover:shadow-xl transition group">
+          <div class="bg-green-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i class="fas fa-headset text-3xl text-white"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Soporte Técnico</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Asesoría profesional para ayudarte a elegir la solución perfecta para tu proyecto.
+          </p>
+        </div>
+
+        <!-- Característica 3 -->
+        <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 hover:shadow-xl transition group">
+          <div class="bg-purple-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i class="fas fa-shipping-fast text-3xl text-white"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Entrega Rápida</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Stock permanente y entregas rápidas en todo Lima y provincias del Perú.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS DE PRODUCTOS -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Nuestros Productos</h2>
+        <p class="text-xl text-gray-600">Encuentra todo lo que necesitas para tu red</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Categoría 1: Cables UTP -->
+        <a href="http://www.ds3comunicaciones.com/AMP/index.html" 
+           class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <div class="relative h-64 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center overflow-hidden">
+            <i class="fas fa-network-wired text-white text-8xl group-hover:scale-110 transition"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Cables UTP</h3>
+            <p class="text-gray-600 mb-4">Cat 5e, Cat 6, Cat 6A y Cat 7</p>
+            <span class="text-blue-600 font-semibold group-hover:underline">
+              Ver Productos <i class="fas fa-arrow-right ml-2"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Categoría 2: Patch Panels -->
+        <a href="http://www.ds3comunicaciones.com/panduit/index.html" 
+           class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <div class="relative h-64 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center overflow-hidden">
+            <i class="fas fa-server text-white text-8xl group-hover:scale-110 transition"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Patch Panels</h3>
+            <p class="text-gray-600 mb-4">Cat 5e, Cat 6 y Cat 6A</p>
+            <span class="text-green-600 font-semibold group-hover:underline">
+              Ver Productos <i class="fas fa-arrow-right ml-2"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Categoría 3: Conectores -->
+        <a href="http://www.ds3comunicaciones.com/AMP/index.html#conectores" 
+           class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <div class="relative h-64 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center overflow-hidden">
+            <i class="fas fa-plug text-white text-8xl group-hover:scale-110 transition"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Conectores RJ45</h3>
+            <p class="text-gray-600 mb-4">Plugs y Jacks profesionales</p>
+            <span class="text-purple-600 font-semibold group-hover:underline">
+              Ver Productos <i class="fas fa-arrow-right ml-2"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Categoría 4: Switches -->
+        <a href="http://www.ds3comunicaciones.com/cisco/index.html" 
+           class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <div class="relative h-64 bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center overflow-hidden">
+            <i class="fas fa-ethernet text-white text-8xl group-hover:scale-110 transition"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Switches</h3>
+            <p class="text-gray-600 mb-4">Cisco, MikroTik, TP-Link</p>
+            <span class="text-red-600 font-semibold group-hover:underline">
+              Ver Productos <i class="fas fa-arrow-right ml-2"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Categoría 5: Fibra Óptica -->
+        <a href="http://www.ds3comunicaciones.com/FibreFab/index.html" 
+           class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <div class="relative h-64 bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center overflow-hidden">
+            <i class="fas fa-project-diagram text-white text-8xl group-hover:scale-110 transition"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Fibra Óptica</h3>
+            <p class="text-gray-600 mb-4">Cables y conectores</p>
+            <span class="text-yellow-600 font-semibold group-hover:underline">
+              Ver Productos <i class="fas fa-arrow-right ml-2"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Categoría 6: WiFi -->
+        <a href="http://www.ds3comunicaciones.com/ubiquiti/index.html" 
+           class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <div class="relative h-64 bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center overflow-hidden">
+            <i class="fas fa-wifi text-white text-8xl group-hover:scale-110 transition"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">WiFi & Wireless</h3>
+            <p class="text-gray-600 mb-4">Ubiquiti, MikroTik, TP-Link</p>
+            <span class="text-indigo-600 font-semibold group-hover:underline">
+              Ver Productos <i class="fas fa-arrow-right ml-2"></i>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARCAS -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Marcas que Confiamos</h2>
+        <p class="text-xl text-gray-600">Líderes mundiales en tecnología de redes</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+        <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center hover:bg-blue-50 transition">
+          <img src="http://www.ds3comunicaciones.com/belden/images/amp_logo2-91x20.jpg" class="h-12 w-auto object-contain" alt="AMP" />
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center hover:bg-blue-50 transition">
+          <img src="http://www.ds3comunicaciones.com/belden/images/Belden-Logo-93x15.jpg" class="h-12 w-auto object-contain" alt="Belden" />
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center hover:bg-blue-50 transition">
+          <img src="http://www.ds3comunicaciones.com/cisco/images/logo-cisco.gif" class="h-12 w-auto object-contain" alt="Cisco" />
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center hover:bg-blue-50 transition">
+          <img src="http://www.ds3comunicaciones.com/belden/images/mikrotik_logo-100x24.png" class="h-12 w-auto object-contain" alt="MikroTik" />
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center hover:bg-blue-50 transition">
+          <img src="http://www.ds3comunicaciones.com/belden/images/ubnt_logo-100x47.png" class="h-12 w-auto object-contain" alt="Ubiquiti" />
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center hover:bg-blue-50 transition">
+          <img src="http://www.ds3comunicaciones.com/panduit/images/panduit_logo.jpg" class="h-12 w-auto object-contain" alt="Panduit" />
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center hover:bg-blue-50 transition">
+          <img src="http://www.ds3comunicaciones.com/siemon/images/siemon_logo1.GIF" class="h-12 w-auto object-contain" alt="Siemon" />
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center hover:bg-blue-50 transition">
+          <img src="http://www.ds3comunicaciones.com/belden/images/D-Link_Logo-100x26.jpg" class="h-12 w-auto object-contain" alt="D-Link" />
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center hover:bg-blue-50 transition">
+          <img src="http://www.ds3comunicaciones.com/belden/images/tp-link_logo-100x13.jpg" class="h-12 w-auto object-contain" alt="TP-Link" />
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center hover:bg-blue-50 transition">
+          <img src="http://www.ds3comunicaciones.com/dahua/images/dahua_logo.jpg" class="h-12 w-auto object-contain" alt="Dahua" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="py-20 bg-gradient-to-r from-blue-600 to-blue-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        ¿Listo para mejorar tu infraestructura de red?
+      </h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+        Contáctanos hoy y descubre cómo podemos ayudarte a implementar la solución perfecta para tu empresa
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="https://wa.me/994428965" 
+           target="_blank"
+           class="bg-white text-blue-900 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition shadow-lg hover:shadow-xl inline-flex items-center">
+          <i class="fab fa-whatsapp mr-2 text-2xl"></i>
+          WhatsApp: 994-428-965
+        </a>
+        <a href="tel:5334339" 
+           class="bg-green-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-600 transition shadow-lg hover:shadow-xl inline-flex items-center">
+          <i class="fas fa-phone-alt mr-2"></i>
+          Llamar: 533-4339
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Columna 1: Logo y descripción -->
+        <div>
+          <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" 
+               alt="DS3 Comunicaciones" 
+               class="h-12 mb-4 bg-white p-2 rounded" />
+          <p class="text-gray-400 text-sm mb-4">
+            Líderes en soluciones de redes y comunicaciones en Perú.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-facebook-f text-xl"></i>
+            </a>
+            <a href="https://wa.me/994428965" target="_blank" class="text-gray-400 hover:text-green-400 transition">
+              <i class="fab fa-whatsapp text-xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna 2: Contacto -->
+        <div>
+          <h3 class="text-lg font-bold mb-4">Contacto</h3>
+          <ul class="space-y-3 text-gray-400 text-sm">
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-phone-alt text-blue-400"></i>
+              <span>533-4339</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fab fa-whatsapp text-green-400"></i>
+              <span>994-428-965</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-phone-alt text-blue-400"></i>
+              <span>996-533-223</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-envelope text-blue-400"></i>
+              <span>netperu100@hotmail.com</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Horarios -->
+        <div>
+          <h3 class="text-lg font-bold mb-4">Horario de Atención</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>Lunes - Viernes: 9:00 - 18:00</li>
+            <li>Sábado: 9:00 - 13:00</li>
+            <li>Domingo: Cerrado</li>
+            <li class="pt-2">
+              <i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>
+              Lima, Perú
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Enlaces rápidos -->
+        <div>
+          <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="https://www.ds3comunicaciones.com/index.html" class="hover:text-white transition">Inicio</a></li>
+            <li><a href="http://www.ds3comunicaciones.com/AMP/index.html" class="hover:text-white transition">Cables UTP</a></li>
+            <li><a href="http://www.ds3comunicaciones.com/cisco/index.html" class="hover:text-white transition">Switches</a></li>
+            <li><a href="https://www.ds3comunicaciones.com/pedido.html" class="hover:text-white transition">Realizar Pedido</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+        <p>&copy; 2026 DS3 Comunicaciones. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Menú móvil toggle
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
